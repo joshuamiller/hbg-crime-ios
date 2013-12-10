@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03E3AFA418569F1E0011C41E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E3AFA318569F1E0011C41E /* Foundation.framework */; };
+		03E3AFA618569F1E0011C41E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E3AFA518569F1E0011C41E /* CoreGraphics.framework */; };
+		03E3AFA818569F1E0011C41E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E3AFA718569F1E0011C41E /* UIKit.framework */; };
+		03E3AFAE18569F1E0011C41E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03E3AFAC18569F1E0011C41E /* InfoPlist.strings */; };
+		03E3AFB018569F1E0011C41E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E3AFAF18569F1E0011C41E /* main.m */; };
+		03E3AFB418569F1E0011C41E /* CTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E3AFB318569F1E0011C41E /* CTAppDelegate.m */; };
+		03E3AFB718569F1E0011C41E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03E3AFB518569F1E0011C41E /* Main.storyboard */; };
+		03E3AFBA18569F1E0011C41E /* CTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E3AFB918569F1E0011C41E /* CTViewController.m */; };
+		03E3AFBC18569F1E0011C41E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03E3AFBB18569F1E0011C41E /* Images.xcassets */; };
+		03E3AFC318569F1E0011C41E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E3AFC218569F1E0011C41E /* XCTest.framework */; };
+		03E3AFC418569F1E0011C41E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E3AFA318569F1E0011C41E /* Foundation.framework */; };
+		03E3AFC518569F1E0011C41E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E3AFA718569F1E0011C41E /* UIKit.framework */; };
+		03E3AFCD18569F1E0011C41E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03E3AFCB18569F1E0011C41E /* InfoPlist.strings */; };
+		03E3AFCF18569F1E0011C41E /* Harrisburg_Crime_TrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E3AFCE18569F1E0011C41E /* Harrisburg_Crime_TrackerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03E3AFC618569F1E0011C41E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03E3AF9818569F1E0011C41E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03E3AF9F18569F1E0011C41E;
+			remoteInfo = "Harrisburg Crime Tracker";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03E3AFA018569F1E0011C41E /* Harrisburg Crime Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Harrisburg Crime Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03E3AFA318569F1E0011C41E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		03E3AFA518569F1E0011C41E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		03E3AFA718569F1E0011C41E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		03E3AFAB18569F1E0011C41E /* Harrisburg Crime Tracker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Harrisburg Crime Tracker-Info.plist"; sourceTree = "<group>"; };
+		03E3AFAD18569F1E0011C41E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		03E3AFAF18569F1E0011C41E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		03E3AFB118569F1E0011C41E /* Harrisburg Crime Tracker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Harrisburg Crime Tracker-Prefix.pch"; sourceTree = "<group>"; };
+		03E3AFB218569F1E0011C41E /* CTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTAppDelegate.h; sourceTree = "<group>"; };
+		03E3AFB318569F1E0011C41E /* CTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTAppDelegate.m; sourceTree = "<group>"; };
+		03E3AFB618569F1E0011C41E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		03E3AFB818569F1E0011C41E /* CTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTViewController.h; sourceTree = "<group>"; };
+		03E3AFB918569F1E0011C41E /* CTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTViewController.m; sourceTree = "<group>"; };
+		03E3AFBB18569F1E0011C41E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		03E3AFC118569F1E0011C41E /* Harrisburg Crime TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Harrisburg Crime TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03E3AFC218569F1E0011C41E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		03E3AFCA18569F1E0011C41E /* Harrisburg Crime TrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Harrisburg Crime TrackerTests-Info.plist"; sourceTree = "<group>"; };
+		03E3AFCC18569F1E0011C41E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		03E3AFCE18569F1E0011C41E /* Harrisburg_Crime_TrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Harrisburg_Crime_TrackerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03E3AF9D18569F1E0011C41E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03E3AFA618569F1E0011C41E /* CoreGraphics.framework in Frameworks */,
+				03E3AFA818569F1E0011C41E /* UIKit.framework in Frameworks */,
+				03E3AFA418569F1E0011C41E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03E3AFBE18569F1E0011C41E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03E3AFC318569F1E0011C41E /* XCTest.framework in Frameworks */,
+				03E3AFC518569F1E0011C41E /* UIKit.framework in Frameworks */,
+				03E3AFC418569F1E0011C41E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03E3AF9718569F1E0011C41E = {
+			isa = PBXGroup;
+			children = (
+				03E3AFA918569F1E0011C41E /* Harrisburg Crime Tracker */,
+				03E3AFC818569F1E0011C41E /* Harrisburg Crime TrackerTests */,
+				03E3AFA218569F1E0011C41E /* Frameworks */,
+				03E3AFA118569F1E0011C41E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		03E3AFA118569F1E0011C41E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03E3AFA018569F1E0011C41E /* Harrisburg Crime Tracker.app */,
+				03E3AFC118569F1E0011C41E /* Harrisburg Crime TrackerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03E3AFA218569F1E0011C41E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03E3AFA318569F1E0011C41E /* Foundation.framework */,
+				03E3AFA518569F1E0011C41E /* CoreGraphics.framework */,
+				03E3AFA718569F1E0011C41E /* UIKit.framework */,
+				03E3AFC218569F1E0011C41E /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		03E3AFA918569F1E0011C41E /* Harrisburg Crime Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				03E3AFB218569F1E0011C41E /* CTAppDelegate.h */,
+				03E3AFB318569F1E0011C41E /* CTAppDelegate.m */,
+				03E3AFB518569F1E0011C41E /* Main.storyboard */,
+				03E3AFB818569F1E0011C41E /* CTViewController.h */,
+				03E3AFB918569F1E0011C41E /* CTViewController.m */,
+				03E3AFBB18569F1E0011C41E /* Images.xcassets */,
+				03E3AFAA18569F1E0011C41E /* Supporting Files */,
+			);
+			path = "Harrisburg Crime Tracker";
+			sourceTree = "<group>";
+		};
+		03E3AFAA18569F1E0011C41E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				03E3AFAB18569F1E0011C41E /* Harrisburg Crime Tracker-Info.plist */,
+				03E3AFAC18569F1E0011C41E /* InfoPlist.strings */,
+				03E3AFAF18569F1E0011C41E /* main.m */,
+				03E3AFB118569F1E0011C41E /* Harrisburg Crime Tracker-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03E3AFC818569F1E0011C41E /* Harrisburg Crime TrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				03E3AFCE18569F1E0011C41E /* Harrisburg_Crime_TrackerTests.m */,
+				03E3AFC918569F1E0011C41E /* Supporting Files */,
+			);
+			path = "Harrisburg Crime TrackerTests";
+			sourceTree = "<group>";
+		};
+		03E3AFC918569F1E0011C41E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				03E3AFCA18569F1E0011C41E /* Harrisburg Crime TrackerTests-Info.plist */,
+				03E3AFCB18569F1E0011C41E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		03E3AF9F18569F1E0011C41E /* Harrisburg Crime Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03E3AFD218569F1E0011C41E /* Build configuration list for PBXNativeTarget "Harrisburg Crime Tracker" */;
+			buildPhases = (
+				03E3AF9C18569F1E0011C41E /* Sources */,
+				03E3AF9D18569F1E0011C41E /* Frameworks */,
+				03E3AF9E18569F1E0011C41E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Harrisburg Crime Tracker";
+			productName = "Harrisburg Crime Tracker";
+			productReference = 03E3AFA018569F1E0011C41E /* Harrisburg Crime Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		03E3AFC018569F1E0011C41E /* Harrisburg Crime TrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03E3AFD518569F1E0011C41E /* Build configuration list for PBXNativeTarget "Harrisburg Crime TrackerTests" */;
+			buildPhases = (
+				03E3AFBD18569F1E0011C41E /* Sources */,
+				03E3AFBE18569F1E0011C41E /* Frameworks */,
+				03E3AFBF18569F1E0011C41E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03E3AFC718569F1E0011C41E /* PBXTargetDependency */,
+			);
+			name = "Harrisburg Crime TrackerTests";
+			productName = "Harrisburg Crime TrackerTests";
+			productReference = 03E3AFC118569F1E0011C41E /* Harrisburg Crime TrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03E3AF9818569F1E0011C41E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CT;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Joshua Miller";
+				TargetAttributes = {
+					03E3AFC018569F1E0011C41E = {
+						TestTargetID = 03E3AF9F18569F1E0011C41E;
+					};
+				};
+			};
+			buildConfigurationList = 03E3AF9B18569F1E0011C41E /* Build configuration list for PBXProject "Harrisburg Crime Tracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 03E3AF9718569F1E0011C41E;
+			productRefGroup = 03E3AFA118569F1E0011C41E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				03E3AF9F18569F1E0011C41E /* Harrisburg Crime Tracker */,
+				03E3AFC018569F1E0011C41E /* Harrisburg Crime TrackerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03E3AF9E18569F1E0011C41E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03E3AFBC18569F1E0011C41E /* Images.xcassets in Resources */,
+				03E3AFAE18569F1E0011C41E /* InfoPlist.strings in Resources */,
+				03E3AFB718569F1E0011C41E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03E3AFBF18569F1E0011C41E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03E3AFCD18569F1E0011C41E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03E3AF9C18569F1E0011C41E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03E3AFB018569F1E0011C41E /* main.m in Sources */,
+				03E3AFB418569F1E0011C41E /* CTAppDelegate.m in Sources */,
+				03E3AFBA18569F1E0011C41E /* CTViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03E3AFBD18569F1E0011C41E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03E3AFCF18569F1E0011C41E /* Harrisburg_Crime_TrackerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03E3AFC718569F1E0011C41E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03E3AF9F18569F1E0011C41E /* Harrisburg Crime Tracker */;
+			targetProxy = 03E3AFC618569F1E0011C41E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		03E3AFAC18569F1E0011C41E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03E3AFAD18569F1E0011C41E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		03E3AFB518569F1E0011C41E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03E3AFB618569F1E0011C41E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		03E3AFCB18569F1E0011C41E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03E3AFCC18569F1E0011C41E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		03E3AFD018569F1E0011C41E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		03E3AFD118569F1E0011C41E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03E3AFD318569F1E0011C41E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Harrisburg Crime Tracker/Harrisburg Crime Tracker-Prefix.pch";
+				INFOPLIST_FILE = "Harrisburg Crime Tracker/Harrisburg Crime Tracker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		03E3AFD418569F1E0011C41E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Harrisburg Crime Tracker/Harrisburg Crime Tracker-Prefix.pch";
+				INFOPLIST_FILE = "Harrisburg Crime Tracker/Harrisburg Crime Tracker-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		03E3AFD618569F1E0011C41E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Harrisburg Crime Tracker.app/Harrisburg Crime Tracker";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Harrisburg Crime Tracker/Harrisburg Crime Tracker-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Harrisburg Crime TrackerTests/Harrisburg Crime TrackerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		03E3AFD718569F1E0011C41E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Harrisburg Crime Tracker.app/Harrisburg Crime Tracker";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Harrisburg Crime Tracker/Harrisburg Crime Tracker-Prefix.pch";
+				INFOPLIST_FILE = "Harrisburg Crime TrackerTests/Harrisburg Crime TrackerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03E3AF9B18569F1E0011C41E /* Build configuration list for PBXProject "Harrisburg Crime Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03E3AFD018569F1E0011C41E /* Debug */,
+				03E3AFD118569F1E0011C41E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03E3AFD218569F1E0011C41E /* Build configuration list for PBXNativeTarget "Harrisburg Crime Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03E3AFD318569F1E0011C41E /* Debug */,
+				03E3AFD418569F1E0011C41E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		03E3AFD518569F1E0011C41E /* Build configuration list for PBXNativeTarget "Harrisburg Crime TrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03E3AFD618569F1E0011C41E /* Debug */,
+				03E3AFD718569F1E0011C41E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 03E3AF9818569F1E0011C41E /* Project object */;
+}
