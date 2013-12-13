@@ -48,15 +48,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView     cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"CellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
-    cell.textLabel.text = [[self.reports objectAtIndex:indexPath.row] titleForDisplay];
+    CTCrimeReport *report = [self.reports objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [report titleForDisplay];
+    cell.detailTextLabel.text = [report description];
     return cell;
 }
-
 @end

@@ -13,15 +13,22 @@
 
 @implementation CTCrimeReport
 
--(NSString *) endTimeString {
+-(NSString *) formattedStringForDate:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setTimeZone:[[NSTimeZone alloc] initWithName:@"America/New_York"]];
     [formatter setDateFormat:@"MM/dd hh:mm aa"];
-    return [formatter stringFromDate:self.endTime];
+    return [formatter stringFromDate:date];
+}
+
+-(NSString *) endTimeString {
+    return [self formattedStringForDate:self.endTime];
 }
 
 -(NSString *) titleForDisplay {
-    return [[self endTimeString]stringByAppendingString:self.address];
+    NSMutableString *title = [[self endTimeString] mutableCopy];
+    [title appendString:@": "];
+    [title appendString:self.address];
+    return [NSString stringWithString:title];
 }
 
 +(void) loadReportsWithSuccessBlock:success
