@@ -8,6 +8,7 @@
 
 #import "CTViewController.h"
 #import "CTCrimeReport.h"
+#import "CTReportViewController.h"
 #import <RestKit/RestKit.h>
 
 @interface CTViewController ()
@@ -15,6 +16,18 @@
 @end
 
 @implementation CTViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"Show Report"]) {
+        if ([segue.destinationViewController isKindOfClass:[CTReportViewController class]]) {
+            CTReportViewController *ctrvc = segue.destinationViewController;
+            CTCrimeReport *report = [self.reports objectAtIndex:[sender tag]];
+            ctrvc.report = report;
+        }
+    }
+    
+}
 
 - (void)viewDidLoad
 {
@@ -58,6 +71,7 @@
     
     cell.textLabel.text = [report titleForDisplay];
     cell.detailTextLabel.text = [report description];
+    cell.tag = indexPath.row;
     return cell;
 }
 @end

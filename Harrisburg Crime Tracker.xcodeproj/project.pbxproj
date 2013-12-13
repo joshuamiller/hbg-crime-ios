@@ -21,6 +21,9 @@
 		03E3AFC518569F1E0011C41E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E3AFA718569F1E0011C41E /* UIKit.framework */; };
 		03E3AFCD18569F1E0011C41E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03E3AFCB18569F1E0011C41E /* InfoPlist.strings */; };
 		03E3AFCF18569F1E0011C41E /* Harrisburg_Crime_TrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E3AFCE18569F1E0011C41E /* Harrisburg_Crime_TrackerTests.m */; };
+		03EFFF3018569FF1009F0D3A /* CTCrimeReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFFF2F18569FF1009F0D3A /* CTCrimeReport.m */; };
+		03F87D68185B9F5D000137F6 /* CTReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F87D67185B9F5D000137F6 /* CTReportViewController.m */; };
+		E45C90B0575D40699CFEBDB8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36003000831249EF8CF7362F /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		03E3AFCA18569F1E0011C41E /* Harrisburg Crime TrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Harrisburg Crime TrackerTests-Info.plist"; sourceTree = "<group>"; };
 		03E3AFCC18569F1E0011C41E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03E3AFCE18569F1E0011C41E /* Harrisburg_Crime_TrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Harrisburg_Crime_TrackerTests.m; sourceTree = "<group>"; };
+		03EFFF2E18569FF1009F0D3A /* CTCrimeReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTCrimeReport.h; sourceTree = "<group>"; };
+		03EFFF2F18569FF1009F0D3A /* CTCrimeReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCrimeReport.m; sourceTree = "<group>"; };
+		03F87D66185B9F5D000137F6 /* CTReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTReportViewController.h; sourceTree = "<group>"; };
+		03F87D67185B9F5D000137F6 /* CTReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTReportViewController.m; sourceTree = "<group>"; };
+		36003000831249EF8CF7362F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EDBC6EF44BF49A7BFFD4DB3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +72,7 @@
 				03E3AFA618569F1E0011C41E /* CoreGraphics.framework in Frameworks */,
 				03E3AFA818569F1E0011C41E /* UIKit.framework in Frameworks */,
 				03E3AFA418569F1E0011C41E /* Foundation.framework in Frameworks */,
+				E45C90B0575D40699CFEBDB8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +96,7 @@
 				03E3AFC818569F1E0011C41E /* Harrisburg Crime TrackerTests */,
 				03E3AFA218569F1E0011C41E /* Frameworks */,
 				03E3AFA118569F1E0011C41E /* Products */,
+				3EDBC6EF44BF49A7BFFD4DB3 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +116,7 @@
 				03E3AFA518569F1E0011C41E /* CoreGraphics.framework */,
 				03E3AFA718569F1E0011C41E /* UIKit.framework */,
 				03E3AFC218569F1E0011C41E /* XCTest.framework */,
+				36003000831249EF8CF7362F /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,13 +124,15 @@
 		03E3AFA918569F1E0011C41E /* Harrisburg Crime Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				03E3AFB218569F1E0011C41E /* CTAppDelegate.h */,
-				03E3AFB318569F1E0011C41E /* CTAppDelegate.m */,
 				03E3AFB518569F1E0011C41E /* Main.storyboard */,
 				03E3AFB818569F1E0011C41E /* CTViewController.h */,
 				03E3AFB918569F1E0011C41E /* CTViewController.m */,
+				03EFFF2E18569FF1009F0D3A /* CTCrimeReport.h */,
+				03EFFF2F18569FF1009F0D3A /* CTCrimeReport.m */,
 				03E3AFBB18569F1E0011C41E /* Images.xcassets */,
 				03E3AFAA18569F1E0011C41E /* Supporting Files */,
+				03F87D66185B9F5D000137F6 /* CTReportViewController.h */,
+				03F87D67185B9F5D000137F6 /* CTReportViewController.m */,
 			);
 			path = "Harrisburg Crime Tracker";
 			sourceTree = "<group>";
@@ -126,6 +140,8 @@
 		03E3AFAA18569F1E0011C41E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03E3AFB218569F1E0011C41E /* CTAppDelegate.h */,
+				03E3AFB318569F1E0011C41E /* CTAppDelegate.m */,
 				03E3AFAB18569F1E0011C41E /* Harrisburg Crime Tracker-Info.plist */,
 				03E3AFAC18569F1E0011C41E /* InfoPlist.strings */,
 				03E3AFAF18569F1E0011C41E /* main.m */,
@@ -159,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03E3AFD218569F1E0011C41E /* Build configuration list for PBXNativeTarget "Harrisburg Crime Tracker" */;
 			buildPhases = (
+				2B3AA7E1FFBF4A79A76891CE /* Check Pods Manifest.lock */,
 				03E3AF9C18569F1E0011C41E /* Sources */,
 				03E3AF9D18569F1E0011C41E /* Frameworks */,
 				03E3AF9E18569F1E0011C41E /* Resources */,
+				28A2AE48139348A9B2C7EB60 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,13 +263,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		28A2AE48139348A9B2C7EB60 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B3AA7E1FFBF4A79A76891CE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		03E3AF9C18569F1E0011C41E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				03E3AFB018569F1E0011C41E /* main.m in Sources */,
+				03EFFF3018569FF1009F0D3A /* CTCrimeReport.m in Sources */,
 				03E3AFB418569F1E0011C41E /* CTAppDelegate.m in Sources */,
+				03F87D68185B9F5D000137F6 /* CTReportViewController.m in Sources */,
 				03E3AFBA18569F1E0011C41E /* CTViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +429,7 @@
 		};
 		03E3AFD318569F1E0011C41E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EDBC6EF44BF49A7BFFD4DB3 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -389,6 +443,7 @@
 		};
 		03E3AFD418569F1E0011C41E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EDBC6EF44BF49A7BFFD4DB3 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -461,6 +516,7 @@
 				03E3AFD418569F1E0011C41E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03E3AFD518569F1E0011C41E /* Build configuration list for PBXNativeTarget "Harrisburg Crime TrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +525,7 @@
 				03E3AFD718569F1E0011C41E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

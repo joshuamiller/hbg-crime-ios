@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller - Crime Reports-->
         <scene sceneID="hMb-nH-4pv">
             <objects>
                 <tableViewController id="AZU-JO-guG" customClass="CTViewController" sceneMemberID="viewController">
@@ -13,11 +13,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="CellIdentifier" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" textLabel="1fE-92-6vz" detailTextLabel="Qd2-WH-db0" rowHeight="30" style="IBUITableViewCellStyleSubtitle" id="0vO-YN-K2R">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="CellIdentifier" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" textLabel="1fE-92-6vz" detailTextLabel="Qd2-WH-db0" rowHeight="30" style="IBUITableViewCellStyleSubtitle" id="0vO-YN-K2R">
                                 <rect key="frame" x="0.0" y="22" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0vO-YN-K2R" id="b80-qZ-zSC">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="29"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1fE-92-6vz">
@@ -36,6 +36,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="CAz-ie-ucS" kind="push" identifier="Show Report" id="f8y-aE-Iia"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -44,7 +47,7 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="vSj-Js-Kw2"/>
+                    <navigationItem key="navigationItem" title="Crime Reports" id="vSj-Js-Kw2"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="AzS-kM-Ol2" id="aQE-O6-OIi"/>
@@ -53,6 +56,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sH-y4-ebp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="414" y="-195"/>
+        </scene>
+        <!--Report View Controller - Crime Report-->
+        <scene sceneID="5Oj-yy-55p">
+            <objects>
+                <viewController id="CAz-ie-ucS" customClass="CTReportViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VkO-Uk-kUc"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Wa-r9-kZP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="28i-yX-jG2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bC-bc-J02">
+                                <rect key="frame" x="20" y="107" width="280" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Crime Report" id="pO9-IS-X7F"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="3bC-bc-J02" id="vDH-rr-O5K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZOT-mm-BUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749" y="-117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1C5-1N-PL1">
