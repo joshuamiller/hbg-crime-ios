@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CTViewController : UIViewController
+@interface CTViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) NSArray *reports;
 
 @end
