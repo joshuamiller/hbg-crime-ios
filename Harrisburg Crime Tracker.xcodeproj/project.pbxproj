@@ -23,6 +23,7 @@
 		03E3AFCF18569F1E0011C41E /* Harrisburg_Crime_TrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E3AFCE18569F1E0011C41E /* Harrisburg_Crime_TrackerTests.m */; };
 		03EFFF3018569FF1009F0D3A /* CTCrimeReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFFF2F18569FF1009F0D3A /* CTCrimeReport.m */; };
 		03F87D68185B9F5D000137F6 /* CTReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F87D67185B9F5D000137F6 /* CTReportViewController.m */; };
+		03F87D6A185BD745000137F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F87D69185BD745000137F6 /* MapKit.framework */; };
 		E45C90B0575D40699CFEBDB8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36003000831249EF8CF7362F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		03EFFF2F18569FF1009F0D3A /* CTCrimeReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTCrimeReport.m; sourceTree = "<group>"; };
 		03F87D66185B9F5D000137F6 /* CTReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTReportViewController.h; sourceTree = "<group>"; };
 		03F87D67185B9F5D000137F6 /* CTReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTReportViewController.m; sourceTree = "<group>"; };
+		03F87D69185BD745000137F6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		36003000831249EF8CF7362F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EDBC6EF44BF49A7BFFD4DB3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F87D6A185BD745000137F6 /* MapKit.framework in Frameworks */,
 				03E3AFA618569F1E0011C41E /* CoreGraphics.framework in Frameworks */,
 				03E3AFA818569F1E0011C41E /* UIKit.framework in Frameworks */,
 				03E3AFA418569F1E0011C41E /* Foundation.framework in Frameworks */,
@@ -112,6 +115,7 @@
 		03E3AFA218569F1E0011C41E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03F87D69185BD745000137F6 /* MapKit.framework */,
 				03E3AFA318569F1E0011C41E /* Foundation.framework */,
 				03E3AFA518569F1E0011C41E /* CoreGraphics.framework */,
 				03E3AFA718569F1E0011C41E /* UIKit.framework */,

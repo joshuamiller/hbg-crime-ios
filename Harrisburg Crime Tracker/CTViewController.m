@@ -12,7 +12,6 @@
 #import <RestKit/RestKit.h>
 
 @interface CTViewController ()
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation CTViewController
@@ -29,14 +28,42 @@
     
 }
 
+- (MKCoordinateRegion) harrisburgRegion {
+    MKCoordinateRegion region;
+    region.center.latitude = 40.2725855;
+    region.center.longitude = -76.874382;
+    region.span.latitudeDelta = 0.03;
+    region.span.longitudeDelta = 0.03;
+    return region;
+}
+
+- (MKPointAnnotation *) annotationFromReport:(CTCrimeReport *)report {
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = CLLocationCoordinate2DMake([report.lat floatValue], [report.lng floatValue]);
+    point.title = report.description;
+    point.subtitle = report.titleForDisplay;
+    return point;
+}
+
+- (void) addToMap:(NSArray *) reports {
+    for (CTCrimeReport *report in reports) {
+        [self.mapView addAnnotation:[self annotationFromReport:report]];
+    }
+    
+}
+
 - (void)viewDidLoad
 {
     
     [super viewDidLoad];
     [self.tableView setDataSource:self];
+    [self.mapView setRegion:[self harrisburgRegion]
+                   animated:YES];
+    [self.mapView setZoomEnabled:YES];
     
     [CTCrimeReport loadReportsWithSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         self.reports = mappingResult.array;
+        [self addToMap:self.reports];
         [self.tableView reloadData];
     } andFailureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
         RKLogError(@"Operation failed with error: %@", error);}];

@@ -10,6 +10,8 @@
 #import "CTCrimeReport.h"
 
 @interface CTReportViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionText;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (strong, nonatomic) CTCrimeReport *report;
 @end

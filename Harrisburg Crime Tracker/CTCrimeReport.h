@@ -19,6 +19,7 @@
 
 +(void) loadReportsWithSuccessBlock:success
                     andFailureBlock:failure;
+-(NSString *) endTimeString;
 -(NSString *) titleForDisplay;
 
 @end

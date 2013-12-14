@@ -17,7 +17,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.descriptionLabel.text = self.report.description;
+    self.descriptionText.text = self.report.description;
+    self.addressLabel.text = self.report.address;
+    self.timeLabel.text = [self.report endTimeString];
 }
 
 - (void)didReceiveMemoryWarning
