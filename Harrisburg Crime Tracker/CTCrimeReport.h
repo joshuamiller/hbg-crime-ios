@@ -16,10 +16,13 @@
 @property (nonatomic, strong) NSNumber *lng;
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic, strong) NSDate *endTime;
+@property (nonatomic, strong) NSNumber *reportId;
 
-+(void) loadReportsWithSuccessBlock:success
-                    andFailureBlock:failure;
++(void) loadReportsForDate:(NSDate *)date
+          withSuccessBlock:success
+           andFailureBlock:failure;
 -(NSString *) endTimeString;
 -(NSString *) titleForDisplay;
+-(NSInteger) reportIdAsInteger;
 
 @end

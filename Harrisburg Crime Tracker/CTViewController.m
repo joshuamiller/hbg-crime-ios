@@ -12,17 +12,47 @@
 #import <RestKit/RestKit.h>
 
 @interface CTViewController ()
+@property (nonatomic, strong) UIDatePicker *datePicker;
 @end
 
 @implementation CTViewController
+
+- (IBAction)changeDate:(id)sender {
+    self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 50, 300, 162)];
+    self.datePicker.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95];
+    self.datePicker.date = self.date;
+    [self.datePicker addTarget:self
+                        action:@selector(dateChanged)
+              forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:self.datePicker];
+}
+
+- (void)dateChanged {
+    self.date = [self.datePicker date];
+    [self refreshUI];
+    [self.datePicker removeFromSuperview];
+}
+
+- (NSDate *) date {
+    if (!_date) {
+        NSDate *today = [NSDate date];
+        _date = [today dateByAddingTimeInterval:-86400.0];
+    }
+    return _date;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"Show Report"]) {
         if ([segue.destinationViewController isKindOfClass:[CTReportViewController class]]) {
             CTReportViewController *ctrvc = segue.destinationViewController;
-            CTCrimeReport *report = [self.reports objectAtIndex:[sender tag]];
-            ctrvc.report = report;
+            CTCrimeReport *reportToShow = nil;
+            for (CTCrimeReport *report in self.reports) {
+                if ([report reportIdAsInteger] == [sender tag]) {
+                    reportToShow = report;
+                }
+            }
+            ctrvc.report = reportToShow;
         }
     }
     
@@ -52,21 +82,25 @@
     
 }
 
+- (void)refreshUI {
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    [CTCrimeReport loadReportsForDate:self.date
+                     withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                         self.reports = mappingResult.array;
+                         [self addToMap:self.reports];
+                         [self.tableView reloadData];
+                     } andFailureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
+                         RKLogError(@"Operation failed with error: %@", error);}];
+}
+
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
     [self.tableView setDataSource:self];
     [self.mapView setRegion:[self harrisburgRegion]
                    animated:YES];
     [self.mapView setZoomEnabled:YES];
-    
-    [CTCrimeReport loadReportsWithSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        self.reports = mappingResult.array;
-        [self addToMap:self.reports];
-        [self.tableView reloadData];
-    } andFailureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
-        RKLogError(@"Operation failed with error: %@", error);}];
+    [self refreshUI];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,13 +115,13 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     return [self.reports count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView     cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"CellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -98,7 +132,9 @@
     
     cell.textLabel.text = [report titleForDisplay];
     cell.detailTextLabel.text = [report description];
-    cell.tag = indexPath.row;
+    cell.tag = [report reportIdAsInteger];
     return cell;
+
 }
+
 @end

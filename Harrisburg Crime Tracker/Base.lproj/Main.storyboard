@@ -77,11 +77,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DQA-CH-ILf">
-                                <rect key="frame" x="0.0" y="66" width="320" height="244"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="189"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <tableView clipsSubviews="YES" contentMode="top" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QVD-a4-e5m">
-                                <rect key="frame" x="0.0" y="318" width="320" height="293"/>
+                                <rect key="frame" x="0.0" y="263" width="320" height="348"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -117,7 +117,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Crime Reports" id="uuS-Ev-f8g"/>
+                    <navigationItem key="navigationItem" title="Crime Reports" id="uuS-Ev-f8g">
+                        <barButtonItem key="rightBarButtonItem" title="Date" id="J2Y-Q4-uUE">
+                            <connections>
+                                <action selector="changeDate:" destination="6Mh-ac-fMY" id="8Wf-6r-4Nu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="DQA-CH-ILf" id="ml9-cS-HgL"/>
                         <outlet property="tableView" destination="QVD-a4-e5m" id="p95-re-3cR"/>

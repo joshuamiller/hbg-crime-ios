@@ -31,8 +31,13 @@
     return [NSString stringWithString:title];
 }
 
-+(void) loadReportsWithSuccessBlock:success
-                    andFailureBlock:failure {
+-(NSInteger) reportIdAsInteger {
+    return [_reportId integerValue];
+}
+
++(void) loadReportsForDate:date
+          withSuccessBlock:success
+           andFailureBlock:failure {
     
     RKObjectMapping *reportMapping =
         [RKObjectMapping mappingForClass:[CTCrimeReport class]];
@@ -43,15 +48,26 @@
        @"lat":         @"lat",
        @"lng":         @"lng",
        @"starttime":   @"startTime",
-       @"endtime":     @"endTime"}];
+       @"endtime":     @"endTime",
+       @"id":          @"reportId"}];
     RKResponseDescriptor *responseDescriptor =
-        [RKResponseDescriptor responseDescriptorWithMapping:reportMapping
-                                                     method:RKRequestMethodAny
-                                                pathPattern:nil
-                                                    keyPath:nil
-                                                statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+        [RKResponseDescriptor
+         responseDescriptorWithMapping:reportMapping
+                                method:RKRequestMethodAny
+                            pathPattern:nil
+                                keyPath:nil
+                            statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateURLFragment = [formatter stringFromDate:date];
+    NSMutableString *urlString = [dateURLFragment mutableCopy];
+    [urlString appendString:@"/"];
+    [urlString appendString:dateURLFragment];
+    [urlString appendString:@"/reports.json"];
+    
     NSURL *url =
-        [NSURL URLWithString:[SERVER_URL stringByAppendingString:@"2013-12-01/2013-12-01/reports.json"]];
+        [NSURL URLWithString:[SERVER_URL stringByAppendingString:urlString]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     RKObjectRequestOperation *objectRequestOperation =
         [[RKObjectRequestOperation alloc] initWithRequest:request
