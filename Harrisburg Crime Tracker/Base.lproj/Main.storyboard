@@ -85,7 +85,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="CellIdentifier" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" textLabel="cZJ-uM-RO4" detailTextLabel="4T9-Gl-6d7" rowHeight="30" style="IBUITableViewCellStyleSubtitle" id="Kmn-HU-pY8">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="CellIdentifier" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" textLabel="cZJ-uM-RO4" detailTextLabel="4T9-Gl-6d7" rowHeight="30" style="IBUITableViewCellStyleSubtitle" id="Kmn-HU-pY8" propertyAccessControl="none">
                                         <rect key="frame" x="0.0" y="22" width="320" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kmn-HU-pY8" id="ZlQ-Qc-YRd">
@@ -125,7 +125,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateButton" destination="J2Y-Q4-uUE" id="2QM-O9-tsc"/>
                         <outlet property="mapView" destination="DQA-CH-ILf" id="ml9-cS-HgL"/>
+                        <outlet property="navigationItem" destination="uuS-Ev-f8g" id="bVI-M5-nds"/>
                         <outlet property="tableView" destination="QVD-a4-e5m" id="p95-re-3cR"/>
                     </connections>
                 </viewController>

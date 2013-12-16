@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03DC5C3B185E766B00C9B965 /* Greyscale_Basic_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03DC5C37185E766B00C9B965 /* Greyscale_Basic_Bold.ttf */; };
+		03DC5C3C185E766B00C9B965 /* Greyscale_Basic_Bold_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03DC5C38185E766B00C9B965 /* Greyscale_Basic_Bold_Italic.ttf */; };
+		03DC5C3D185E766B00C9B965 /* Greyscale_Basic_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03DC5C39185E766B00C9B965 /* Greyscale_Basic_Regular.ttf */; };
+		03DC5C3E185E766B00C9B965 /* Greyscale_Basic_Regular_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03DC5C3A185E766B00C9B965 /* Greyscale_Basic_Regular_Italic.ttf */; };
 		03E3AFA418569F1E0011C41E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E3AFA318569F1E0011C41E /* Foundation.framework */; };
 		03E3AFA618569F1E0011C41E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E3AFA518569F1E0011C41E /* CoreGraphics.framework */; };
 		03E3AFA818569F1E0011C41E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E3AFA718569F1E0011C41E /* UIKit.framework */; };
@@ -38,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03DC5C37185E766B00C9B965 /* Greyscale_Basic_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Greyscale_Basic_Bold.ttf; sourceTree = "<group>"; };
+		03DC5C38185E766B00C9B965 /* Greyscale_Basic_Bold_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Greyscale_Basic_Bold_Italic.ttf; sourceTree = "<group>"; };
+		03DC5C39185E766B00C9B965 /* Greyscale_Basic_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Greyscale_Basic_Regular.ttf; sourceTree = "<group>"; };
+		03DC5C3A185E766B00C9B965 /* Greyscale_Basic_Regular_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Greyscale_Basic_Regular_Italic.ttf; sourceTree = "<group>"; };
 		03E3AFA018569F1E0011C41E /* Harrisburg Crime Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Harrisburg Crime Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E3AFA318569F1E0011C41E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		03E3AFA518569F1E0011C41E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -92,6 +100,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03DC5C36185E766B00C9B965 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				03DC5C37185E766B00C9B965 /* Greyscale_Basic_Bold.ttf */,
+				03DC5C38185E766B00C9B965 /* Greyscale_Basic_Bold_Italic.ttf */,
+				03DC5C39185E766B00C9B965 /* Greyscale_Basic_Regular.ttf */,
+				03DC5C3A185E766B00C9B965 /* Greyscale_Basic_Regular_Italic.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		03E3AF9718569F1E0011C41E = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +147,7 @@
 		03E3AFA918569F1E0011C41E /* Harrisburg Crime Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				03DC5C36185E766B00C9B965 /* Resources */,
 				03E3AFB518569F1E0011C41E /* Main.storyboard */,
 				03E3AFB818569F1E0011C41E /* CTViewController.h */,
 				03E3AFB918569F1E0011C41E /* CTViewController.m */,
@@ -251,9 +271,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03DC5C3D185E766B00C9B965 /* Greyscale_Basic_Regular.ttf in Resources */,
+				03DC5C3B185E766B00C9B965 /* Greyscale_Basic_Bold.ttf in Resources */,
 				03E3AFBC18569F1E0011C41E /* Images.xcassets in Resources */,
 				03E3AFAE18569F1E0011C41E /* InfoPlist.strings in Resources */,
 				03E3AFB718569F1E0011C41E /* Main.storyboard in Resources */,
+				03DC5C3E185E766B00C9B965 /* Greyscale_Basic_Regular_Italic.ttf in Resources */,
+				03DC5C3C185E766B00C9B965 /* Greyscale_Basic_Bold_Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

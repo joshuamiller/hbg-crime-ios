@@ -13,6 +13,7 @@
 
 @interface CTViewController ()
 @property (nonatomic, strong) UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *dateButton;
 @end
 
 @implementation CTViewController
@@ -100,6 +101,10 @@
     [self.mapView setRegion:[self harrisburgRegion]
                    animated:YES];
     [self.mapView setZoomEnabled:YES];
+
+    [self.navigationController.navigationBar    setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"GreyscaleBasic-Bold" size:20.0]}];
+    [self.dateButton setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"GreyscaleBasic" size:18.0]} forState:UIControlStateNormal];
+    
     [self refreshUI];
 }
 
@@ -132,6 +137,10 @@
     
     cell.textLabel.text = [report titleForDisplay];
     cell.detailTextLabel.text = [report description];
+    
+    [cell.textLabel setFont:[UIFont fontWithName:@"GreyscaleBasic-Bold" size:14.0]];
+    [cell.detailTextLabel setFont:[UIFont fontWithName:@"GreyscaleBasic-Italic" size:11.0]];
+    
     cell.tag = [report reportIdAsInteger];
     return cell;
 
