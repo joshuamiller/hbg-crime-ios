@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *descriptionText;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeTitleLabel;
 @property (strong, nonatomic) CTCrimeReport *report;
 @end
