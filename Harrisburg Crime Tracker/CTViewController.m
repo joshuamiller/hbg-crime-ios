@@ -22,6 +22,8 @@
     self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 50, 300, 162)];
     self.datePicker.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95];
     self.datePicker.date = self.date;
+    [self.datePicker setMaximumDate:[NSDate date]];
+    [self.datePicker setDatePickerMode:UIDatePickerModeDate];
     [self.datePicker addTarget:self
                         action:@selector(dateChanged)
               forControlEvents:UIControlEventValueChanged];
