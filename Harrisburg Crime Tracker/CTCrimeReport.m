@@ -9,7 +9,7 @@
 #import "CTCrimeReport.h"
 #import <RestKit/RestKit.h>
 
-#define SERVER_URL @"http://localhost:3000/"
+#define SERVER_URL @"http://hbg-crime.org/"
 
 @implementation CTCrimeReport
 

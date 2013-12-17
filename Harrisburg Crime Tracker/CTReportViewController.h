@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CTCrimeReport.h"
+#import "PCLineChartView.h"
 
 @interface CTReportViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *descriptionText;
@@ -16,4 +17,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeTitleLabel;
 @property (strong, nonatomic) CTCrimeReport *report;
+@property (strong, nonatomic) PCLineChartView *crimeHistoryView;
 @end

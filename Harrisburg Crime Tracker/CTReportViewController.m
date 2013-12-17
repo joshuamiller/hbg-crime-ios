@@ -33,6 +33,24 @@
     self.descriptionText.text = self.report.description;
     self.addressLabel.text = self.report.address;
     self.timeLabel.text = [self.report endTimeString];
+    
+    self.crimeHistoryView = [[PCLineChartView alloc] initWithFrame:CGRectMake(0, 300, 300, 162)];
+    
+    PCLineChartViewComponent *crimeComp = [[PCLineChartViewComponent alloc] init];
+    crimeComp.points = @[@3, @4, @5, @6, @5];
+    crimeComp.title = @"This Crime";
+    crimeComp.colour = PCColorBlue;
+
+    PCLineChartViewComponent *neighborhoodComp = [[PCLineChartViewComponent alloc] init];
+    neighborhoodComp.points = @[@6, @4, @2, @3, @4];
+    neighborhoodComp.title = @"Midtown";
+    neighborhoodComp.colour = PCColorRed;
+
+    self.crimeHistoryView.maxValue = 6.0;
+    self.crimeHistoryView.autoscaleYAxis = YES;
+    self.crimeHistoryView.xLabels = [@[@"Mon", @"Tue", @"Wed", @"Thu", @"Fri"] mutableCopy];
+    [self.crimeHistoryView setComponents:[@[crimeComp, neighborhoodComp] mutableCopy]];
+    [self.view addSubview:self.crimeHistoryView];
 }
 
 - (void)didReceiveMemoryWarning
