@@ -16,4 +16,6 @@
 @property (nonatomic, strong) NSArray *reports;
 @property (nonatomic, strong) NSDate *date;
 
+-(void) refreshUI;
+
 @end

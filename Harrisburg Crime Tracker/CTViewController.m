@@ -14,6 +14,7 @@
 @interface CTViewController ()
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *dateButton;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation CTViewController
@@ -85,8 +86,16 @@
     
 }
 
+- (UIRefreshControl *)refreshControl {
+    if (!_refreshControl) {
+        _refreshControl = [[UIRefreshControl alloc] init];
+    }
+    return _refreshControl;
+}
+
 - (void)refreshUI {
     [self.mapView removeAnnotations:self.mapView.annotations];
+    [self.refreshControl endRefreshing];
     [CTCrimeReport loadReportsForDate:self.date
                      withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                          self.reports = mappingResult.array;
@@ -100,6 +109,10 @@
 {
     [super viewDidLoad];
     [self.tableView setDataSource:self];
+    
+    [self.refreshControl addTarget:self action:@selector(refreshUI) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.    refreshControl];
+
     [self.mapView setRegion:[self harrisburgRegion]
                    animated:YES];
     [self.mapView setZoomEnabled:YES];
