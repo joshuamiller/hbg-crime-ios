@@ -7,6 +7,7 @@
 //
 
 #import "CTReportViewController.h"
+#import <RestKit/RestKit.h>
 
 @interface CTReportViewController ()
 
@@ -34,23 +35,41 @@
     self.addressLabel.text = self.report.address;
     self.timeLabel.text = [self.report endTimeString];
     
+    [self addCrimeChart];
+}
+
+- (void)addCrimeChart {
+
     self.crimeHistoryView = [[PCLineChartView alloc] initWithFrame:CGRectMake(0, 300, 300, 162)];
-    
-    PCLineChartViewComponent *crimeComp = [[PCLineChartViewComponent alloc] init];
-    crimeComp.points = @[@3, @4, @5, @6, @5];
-    crimeComp.title = @"This Crime";
-    crimeComp.colour = PCColorBlue;
-
-    PCLineChartViewComponent *neighborhoodComp = [[PCLineChartViewComponent alloc] init];
-    neighborhoodComp.points = @[@6, @4, @2, @3, @4];
-    neighborhoodComp.title = @"Midtown";
-    neighborhoodComp.colour = PCColorRed;
-
-    self.crimeHistoryView.maxValue = 6.0;
+    self.crimeHistoryView.maxValue = 20.0;
     self.crimeHistoryView.autoscaleYAxis = YES;
-    self.crimeHistoryView.xLabels = [@[@"Mon", @"Tue", @"Wed", @"Thu", @"Fri"] mutableCopy];
-    [self.crimeHistoryView setComponents:[@[crimeComp, neighborhoodComp] mutableCopy]];
-    [self.view addSubview:self.crimeHistoryView];
+    
+    [CTCrimeReportRelated createWithReportId:[self.report.reportId integerValue]
+                             andSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                             
+                                 CTCrimeReportRelated *result = [mappingResult firstObject];
+                                 
+                                 PCLineChartViewComponent *typeComp = [[PCLineChartViewComponent alloc] init];
+                                 typeComp.points = result.byType;
+                                 typeComp.title = @"This Crime";
+                                 typeComp.colour = PCColorBlue;
+                                 
+                                 if (result.neighborhoodName) {
+                                     PCLineChartViewComponent *neighborhoodComp = [[PCLineChartViewComponent alloc] init];
+                                     neighborhoodComp.points = result.byNeighborhood;
+                                     neighborhoodComp.title = result.neighborhoodName;
+                                     neighborhoodComp.colour = PCColorRed;
+
+                                     [self.crimeHistoryView setComponents:[@[typeComp, neighborhoodComp] mutableCopy]];
+                                 } else {
+                                     [self.crimeHistoryView setComponents:[@[typeComp] mutableCopy]];
+                                 }
+
+                                 self.crimeHistoryView.xLabels = [result.days mutableCopy];
+                                 [self.view addSubview:self.crimeHistoryView];
+                                 
+                             } andFailureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
+                                 RKLogError(@"Operation failed with error: %@", error);}];
 }
 
 - (void)didReceiveMemoryWarning

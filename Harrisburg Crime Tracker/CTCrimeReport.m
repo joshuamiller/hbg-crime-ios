@@ -81,3 +81,41 @@
 }
 
 @end
+
+@implementation CTCrimeReportRelated
+
++(void) createWithReportId:(NSInteger)reportId
+           andSuccessBlock:success
+           andFailureBlock:failure {
+    
+    RKObjectMapping *relatedMapping =
+    [RKObjectMapping mappingForClass:[CTCrimeReportRelated class]];
+    [relatedMapping addAttributeMappingsFromDictionary:
+     @{
+       @"by-type":           @"byType",
+       @"by-neighborhood":   @"byNeighborhood",
+       @"neighborhood-name": @"neighborhoodName",
+       @"days":              @"days"}];
+    RKResponseDescriptor *responseDescriptor =
+    [RKResponseDescriptor
+     responseDescriptorWithMapping:relatedMapping
+     method:RKRequestMethodAny
+     pathPattern:nil
+     keyPath:nil
+     statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    NSString *urlString = [NSString stringWithFormat:@"reports/%d/related.json", reportId];
+    
+    NSURL *url =
+    [NSURL URLWithString:[SERVER_URL stringByAppendingString:urlString]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    RKObjectRequestOperation *objectRequestOperation =
+    [[RKObjectRequestOperation alloc] initWithRequest:request
+                                  responseDescriptors:@[ responseDescriptor ]];
+    [objectRequestOperation
+     setCompletionBlockWithSuccess:success failure:failure];
+    
+    [objectRequestOperation start];
+    
+}
+@end
