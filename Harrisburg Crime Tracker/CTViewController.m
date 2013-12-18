@@ -17,17 +17,39 @@
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
+#define DATE_PICKER_FRAME CGRectMake(0, 50, 300, 162)
+
 @implementation CTViewController
 
-- (IBAction)changeDate:(id)sender {
-    self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 50, 300, 162)];
-    self.datePicker.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95];
-    self.datePicker.date = self.date;
-    [self.datePicker setMaximumDate:[NSDate date]];
-    [self.datePicker setDatePickerMode:UIDatePickerModeDate];
-    [self.datePicker addTarget:self
+/*******************************
+ Date Picker Setup and Behavior
+********************************/
+
+- (NSDate *) date {
+    // Yesterday by default
+    if (!_date) {
+        NSDate *today = [NSDate date];
+        _date = [today dateByAddingTimeInterval:-86400.0];
+    }
+    return _date;
+}
+
+- (UIDatePicker *)datePicker {
+    if (!_datePicker) {
+        _datePicker = [[UIDatePicker alloc] initWithFrame:DATE_PICKER_FRAME];
+        _datePicker.backgroundColor = [UIColor colorWithWhite:1.0
+                                                        alpha:0.95];
+        _datePicker.date = self.date;
+        [_datePicker setMaximumDate:[NSDate date]];
+        [_datePicker setDatePickerMode:UIDatePickerModeDate];
+        [_datePicker addTarget:self
                         action:@selector(dateChanged)
               forControlEvents:UIControlEventValueChanged];
+    }
+    return _datePicker;
+}
+
+- (IBAction)changeDate:(id)sender {
     [self.view addSubview:self.datePicker];
 }
 
@@ -37,30 +59,9 @@
     [self refreshUI];
 }
 
-- (NSDate *) date {
-    if (!_date) {
-        NSDate *today = [NSDate date];
-        _date = [today dateByAddingTimeInterval:-86400.0];
-    }
-    return _date;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([segue.identifier isEqualToString:@"Show Report"]) {
-        if ([segue.destinationViewController isKindOfClass:[CTReportViewController class]]) {
-            CTReportViewController *ctrvc = segue.destinationViewController;
-            CTCrimeReport *reportToShow = nil;
-            for (CTCrimeReport *report in self.reports) {
-                if ([report reportIdAsInteger] == [sender tag]) {
-                    reportToShow = report;
-                }
-            }
-            ctrvc.report = reportToShow;
-        }
-    }
-    
-}
+/*******************************
+ Map Setup and Behavior
+ ********************************/
 
 - (MKCoordinateRegion) harrisburgRegion {
     MKCoordinateRegion region;
@@ -86,6 +87,58 @@
     
 }
 
+/********************************
+ Reports Table Setup and Behavior
+ ********************************/
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+    return [self.reports count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"CellIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    CTCrimeReport *report = [self.reports objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [report titleForDisplay];
+    cell.detailTextLabel.text = [report description];
+    
+    [cell.textLabel setFont:[UIFont fontWithName:@"GreyscaleBasic-Bold" size:14.0]];
+    [cell.detailTextLabel setFont:[UIFont fontWithName:@"GreyscaleBasic-Italic" size:11.0]];
+    
+    cell.tag = [report reportIdAsInteger];
+    return cell;
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Show Report"]) {
+        if ([segue.destinationViewController isKindOfClass:[CTReportViewController class]]) {
+            CTReportViewController *ctrvc = segue.destinationViewController;
+            CTCrimeReport *reportToShow = nil;
+            for (CTCrimeReport *report in self.reports) {
+                if ([report reportIdAsInteger] == [sender tag]) {
+                    reportToShow = report;
+                }
+            }
+            ctrvc.report = reportToShow;
+        }
+    }
+}
+
 - (UIRefreshControl *)refreshControl {
     if (!_refreshControl) {
         _refreshControl = [[UIRefreshControl alloc] init];
@@ -104,6 +157,8 @@
                      } andFailureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
                          RKLogError(@"Operation failed with error: %@", error);}];
 }
+
+// Main setup
 
 - (void)viewDidLoad
 {
@@ -129,36 +184,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
-{
-    return [self.reports count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"CellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    CTCrimeReport *report = [self.reports objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [report titleForDisplay];
-    cell.detailTextLabel.text = [report description];
-    
-    [cell.textLabel setFont:[UIFont fontWithName:@"GreyscaleBasic-Bold" size:14.0]];
-    [cell.detailTextLabel setFont:[UIFont fontWithName:@"GreyscaleBasic-Italic" size:11.0]];
-    
-    cell.tag = [report reportIdAsInteger];
-    return cell;
-
-}
 
 @end
