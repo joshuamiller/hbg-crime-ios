@@ -150,7 +150,7 @@
     float circle_diameter = 10;
     float circle_stroke_width = 3;
     float line_width = 4;
-	
+    	
     for (PCLineChartViewComponent *component in self.components)
     {
         int last_x = 0;
@@ -160,11 +160,10 @@
         {
             component.colour = PCColorBlue;
         }
-		
+        
 		for (int x_axis_index=0; x_axis_index<[component.points count]; x_axis_index++)
         {
             id object = [component.points objectAtIndex:x_axis_index];
-			
 			
             if (object!=[NSNull null] && object)
             {

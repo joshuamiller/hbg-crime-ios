@@ -21,7 +21,7 @@
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"GreyscaleBasic-Bold" size:20.0]} forState:UIControlStateNormal];
     [self.descriptionText setFont:[UIFont fontWithName:@"GreyscaleBasic"
-                                                  size:24.0]];
+                                                  size:16.0]];
     [self.addressTitleLabel setFont:[UIFont fontWithName:@"GreyscaleBasic-Bold"
                                                     size:18.0]];
     [self.addressLabel setFont:[UIFont fontWithName:@"GreyscaleBasic"
@@ -30,6 +30,9 @@
                                                  size:18.0]];
     [self.timeLabel setFont:[UIFont fontWithName:@"GreyscaleBasic"
                                             size:16.0]];
+    [self.descriptionTitleLabel setFont:[UIFont fontWithName:@"GreyscaleBasic-Bold"
+                size:18.0]];
+
 
     self.descriptionText.text = self.report.description;
     self.addressLabel.text = self.report.address;
@@ -40,8 +43,8 @@
 
 - (void)addCrimeChart {
 
-    self.crimeHistoryView = [[PCLineChartView alloc] initWithFrame:CGRectMake(0, 300, 300, 162)];
-    self.crimeHistoryView.maxValue = 20.0;
+    self.crimeHistoryView = [[PCLineChartView alloc] initWithFrame:CGRectMake(5, 275, 300, 200)];
+    self.crimeHistoryView.maxValue = 15.0;
     self.crimeHistoryView.autoscaleYAxis = YES;
     
     [CTCrimeReportRelated createWithReportId:[self.report.reportId integerValue]
@@ -55,6 +58,8 @@
                                  typeComp.colour = PCColorBlue;
                                  
                                  if (result.neighborhoodName) {
+                                     self.addressTitleLabel.text = result.neighborhoodName;
+                                     
                                      PCLineChartViewComponent *neighborhoodComp = [[PCLineChartViewComponent alloc] init];
                                      neighborhoodComp.points = result.byNeighborhood;
                                      neighborhoodComp.title = result.neighborhoodName;

@@ -31,9 +31,9 @@
 }
 
 - (void)dateChanged {
+    [self.datePicker removeFromSuperview];
     self.date = [self.datePicker date];
     [self refreshUI];
-    [self.datePicker removeFromSuperview];
 }
 
 - (NSDate *) date {
