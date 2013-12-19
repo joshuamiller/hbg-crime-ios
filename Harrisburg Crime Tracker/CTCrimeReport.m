@@ -104,7 +104,7 @@
      keyPath:nil
      statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
-    NSString *urlString = [NSString stringWithFormat:@"reports/%d/related.json", reportId];
+    NSString *urlString = [NSString stringWithFormat:@"reports/%d/related.json", (int)reportId];
     
     NSURL *url =
     [NSURL URLWithString:[SERVER_URL stringByAppendingString:urlString]];

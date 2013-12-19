@@ -155,6 +155,12 @@
                          [self addToMap:self.reports];
                          [self.tableView reloadData];
                      } andFailureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
+                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hbg-crime.org Unreachable"
+                                                                         message:@"We couldn't reach the server at http://hbg-crime.org/. Either your internet connection is down, or we are having server trouble."
+                                                                        delegate:nil
+                                                               cancelButtonTitle:@"Ok"
+                                                               otherButtonTitles:nil, nil];
+                         [alert show];
                          RKLogError(@"Operation failed with error: %@", error);}];
 }
 
