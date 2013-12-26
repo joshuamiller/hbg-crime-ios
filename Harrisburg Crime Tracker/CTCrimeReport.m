@@ -54,9 +54,9 @@
         [RKResponseDescriptor
          responseDescriptorWithMapping:reportMapping
                                 method:RKRequestMethodAny
-                            pathPattern:nil
-                                keyPath:nil
-                            statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+                           pathPattern:nil
+                               keyPath:nil
+                           statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
