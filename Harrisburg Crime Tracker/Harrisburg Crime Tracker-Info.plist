@@ -5,11 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string></string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Hbg Crime</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>io.joshmiller.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>io.joshmiller.hbg-crime-tracker-01</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -25,7 +25,7 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string>public.app-category.news</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIAppFonts</key>
