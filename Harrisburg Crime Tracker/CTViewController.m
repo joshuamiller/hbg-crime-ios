@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *dateButton;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) NSMutableDictionary *reportAnnotations;
 @end
 
 #define DATE_PICKER_FRAME CGRectMake(0, 50, 300, 162)
@@ -82,7 +83,9 @@
 
 - (void) addToMap:(NSArray *) reports {
     for (CTCrimeReport *report in reports) {
-        [self.mapView addAnnotation:[self annotationFromReport:report]];
+        MKPointAnnotation *annotation = [self annotationFromReport:report];
+        [self.reportAnnotations setObject:annotation forKey:report.reportId];
+        [self.mapView addAnnotation:annotation];
     }
     
 }
@@ -124,6 +127,13 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    MKPointAnnotation *annotation = [self.reportAnnotations objectForKey:[NSNumber numberWithInt:cell.tag]];
+    [self.mapView selectAnnotation:annotation animated:YES];
+    
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Show Report"]) {
         if ([segue.destinationViewController isKindOfClass:[CTReportViewController class]]) {
@@ -148,13 +158,16 @@
 
 - (void)refreshUI {
     [self.mapView removeAnnotations:self.mapView.annotations];
-    [self.refreshControl endRefreshing];
+    [self.reportAnnotations removeAllObjects];
+    [self.refreshControl beginRefreshing];
     [CTCrimeReport loadReportsForDate:self.date
                      withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                         [self.refreshControl endRefreshing];
                          self.reports = mappingResult.array;
                          [self addToMap:self.reports];
                          [self.tableView reloadData];
                      } andFailureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
+                         [self.refreshControl endRefreshing];
                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hbg-crime.org Unreachable"
                                                                          message:@"We couldn't reach the server at http://hbg-crime.org/. Either your internet connection is down, or we are having server trouble."
                                                                         delegate:nil
@@ -166,13 +179,23 @@
 
 // Main setup
 
+- (NSMutableDictionary *)reportAnnotations {
+    if (!_reportAnnotations) {
+        _reportAnnotations = [[NSMutableDictionary alloc] init];
+    }
+    return _reportAnnotations;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.tableView setDataSource:self];
+    [self.tableView setDelegate:self];
     
-    [self.refreshControl addTarget:self action:@selector(refreshUI) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:self.    refreshControl];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshUI)
+                  forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
 
     [self.mapView setRegion:[self harrisburgRegion]
                    animated:YES];
