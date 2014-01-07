@@ -98,12 +98,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DQA-CH-ILf">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DQA-CH-ILf">
                                 <rect key="frame" x="0.0" y="66" width="320" height="189"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
-                            <tableView clipsSubviews="YES" contentMode="top" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QVD-a4-e5m">
-                                <rect key="frame" x="0.0" y="263" width="320" height="348"/>
+                            <tableView clipsSubviews="YES" contentMode="top" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QVD-a4-e5m">
+                                <rect key="frame" x="0.0" y="255" width="320" height="313"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -138,6 +138,17 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DQA-CH-ILf" firstAttribute="leading" secondItem="XQb-cU-slh" secondAttribute="leading" id="DIY-C5-9cV"/>
+                            <constraint firstItem="uhU-B2-2PY" firstAttribute="top" secondItem="DQA-CH-ILf" secondAttribute="bottom" constant="313" id="IhE-ac-qMW"/>
+                            <constraint firstAttribute="trailing" secondItem="QVD-a4-e5m" secondAttribute="trailing" id="KHw-AZ-y8I"/>
+                            <constraint firstItem="DQA-CH-ILf" firstAttribute="top" secondItem="uWG-6b-MxK" secondAttribute="bottom" constant="2" id="OK0-3Q-o6O"/>
+                            <constraint firstItem="QVD-a4-e5m" firstAttribute="leading" secondItem="XQb-cU-slh" secondAttribute="leading" id="UkN-lF-pIc"/>
+                            <constraint firstItem="uhU-B2-2PY" firstAttribute="top" secondItem="QVD-a4-e5m" secondAttribute="bottom" id="b7n-1f-BrM"/>
+                            <constraint firstAttribute="trailing" secondItem="DQA-CH-ILf" secondAttribute="trailing" id="d5L-NM-Ntk"/>
+                            <constraint firstAttribute="centerX" secondItem="DQA-CH-ILf" secondAttribute="centerX" id="fjP-rq-fd4"/>
+                            <constraint firstAttribute="centerX" secondItem="QVD-a4-e5m" secondAttribute="centerX" id="r8X-vd-e8Y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Crime Reports" id="uuS-Ev-f8g">
                         <barButtonItem key="rightBarButtonItem" title="Date" id="J2Y-Q4-uUE">

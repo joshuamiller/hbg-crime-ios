@@ -22,6 +22,14 @@
 
 @implementation CTViewController
 
+- (UITableView *) tableView {
+    if (_tableView) {
+        return _tableView;
+    } else {
+        return _tableView;
+    }
+}
+
 /*******************************
  Date Picker Setup and Behavior
 ********************************/
