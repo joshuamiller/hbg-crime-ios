@@ -16,19 +16,12 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *dateButton;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSMutableDictionary *reportAnnotations;
+@property (nonatomic) BOOL datePickerIsVisible;
 @end
 
 #define DATE_PICKER_FRAME CGRectMake(0, 50, 300, 162)
 
 @implementation CTViewController
-
-- (UITableView *) tableView {
-    if (_tableView) {
-        return _tableView;
-    } else {
-        return _tableView;
-    }
-}
 
 /*******************************
  Date Picker Setup and Behavior
@@ -51,15 +44,19 @@
         _datePicker.date = self.date;
         [_datePicker setMaximumDate:[NSDate date]];
         [_datePicker setDatePickerMode:UIDatePickerModeDate];
-        [_datePicker addTarget:self
-                        action:@selector(dateChanged)
-              forControlEvents:UIControlEventValueChanged];
     }
     return _datePicker;
 }
 
 - (IBAction)changeDate:(id)sender {
-    [self.view addSubview:self.datePicker];
+    if (self.datePickerIsVisible) {
+        self.dateButton.title = @"Date";
+        [self dateChanged];
+    } else {
+        self.dateButton.title = @"Search";
+        [self.view addSubview:self.datePicker];
+    }
+    self.datePickerIsVisible = !(self.datePickerIsVisible);
 }
 
 - (void)dateChanged {
