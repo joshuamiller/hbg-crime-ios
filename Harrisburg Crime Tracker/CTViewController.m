@@ -108,26 +108,43 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return [self.reports count];
+    if (![self.reports count]) {
+        return 1;
+    } else {
+        return [self.reports count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"CellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    
+    UITableViewCell *cell;
+    
+    // If reports array empty, display "no results" cell
+    if (![self.reports count]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"NoReportsCell"];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NoReportsCell"];
+        }
+        
+        cell.textLabel.text = @"No Reports On This Date";
+    } else {
+        static NSString *cellIdentifier = @"CellIdentifier";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        }
+    
+        CTCrimeReport *report = [self.reports objectAtIndex:indexPath.row];
+    
+        cell.textLabel.text = [report titleForDisplay];
+        cell.detailTextLabel.text = [report description];
+        cell.tag = [report reportIdAsInteger];
     }
-    
-    CTCrimeReport *report = [self.reports objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [report titleForDisplay];
-    cell.detailTextLabel.text = [report description];
     
     [cell.textLabel setFont:[UIFont fontWithName:@"GreyscaleBasic-Bold" size:14.0]];
     [cell.detailTextLabel setFont:[UIFont fontWithName:@"GreyscaleBasic-Italic" size:11.0]];
-    
-    cell.tag = [report reportIdAsInteger];
+
     return cell;
     
 }
