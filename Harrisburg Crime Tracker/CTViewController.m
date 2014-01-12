@@ -79,18 +79,24 @@
 }
 
 - (MKPointAnnotation *) annotationFromReport:(CTCrimeReport *)report {
-    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-    point.coordinate = CLLocationCoordinate2DMake([report.lat floatValue], [report.lng floatValue]);
-    point.title = report.description;
-    point.subtitle = report.titleForDisplay;
-    return point;
+    if (report.lat && report.lng) {
+        MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+        point.coordinate = CLLocationCoordinate2DMake([report.lat floatValue], [report.lng floatValue]);
+        point.title = report.description;
+        point.subtitle = report.titleForDisplay;
+        return point;
+    } else {
+        return nil;
+    }
 }
 
 - (void) addToMap:(NSArray *) reports {
     for (CTCrimeReport *report in reports) {
         MKPointAnnotation *annotation = [self annotationFromReport:report];
-        [self.reportAnnotations setObject:annotation forKey:report.reportId];
-        [self.mapView addAnnotation:annotation];
+        if (annotation) {
+            [self.reportAnnotations setObject:annotation forKey:report.reportId];
+            [self.mapView addAnnotation:annotation];
+        }
     }
     
 }
